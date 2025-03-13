@@ -1,4 +1,4 @@
-// package nasa-java-client.src.main.java.com.example;
+package com.example;
 
 import java.io.IOException;
 import java.net.URI;
@@ -47,20 +47,6 @@ public class NasaClient {
             return objectMapper.readTree(response.body());
         } else {
             throw new RuntimeException("Request failed with status " + response.statusCode() + ": " + response.body());
-        }
-    }
-
-    // Simple main method for demonstration
-    public static void main(String[] args) {
-        try {
-            NasaClient client = new NasaClient("DEMO_KEY"); // replace with your real API key
-            JsonNode todayImage = client.getImage("", false);
-            System.out.println("Today's APOD:\n" + todayImage.toPrettyString());
-
-            JsonNode datedImage = client.getImage("2012-07-07", true);
-            System.out.println("APOD for 2012-07-07:\n" + datedImage.toPrettyString());
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }
